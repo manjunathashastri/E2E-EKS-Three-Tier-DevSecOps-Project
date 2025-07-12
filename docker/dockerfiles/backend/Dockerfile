@@ -7,7 +7,7 @@ RUN npm install
 FROM node:14.0.0-alpine
 WORKDIR /app
 COPY --from=backend /usr/src/app/node_modules ./node_modules
-COPY --from=backend /usr/src/app/modules .
+COPY --from=backend /usr/src/app/models .
 COPY --from=backend /usr/src/app/routes .
 COPY --from=backend /usr/src/app/db.js .
 COPY --from=backend /usr/src/app/index.js .
