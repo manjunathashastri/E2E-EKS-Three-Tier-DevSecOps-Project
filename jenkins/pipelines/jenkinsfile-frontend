@@ -7,7 +7,7 @@ pipeline {
         SCANNER_HOME = tool 'sonar-scanner'
         AWS_ACCOUNT_ID = credentials('AWS_ACCOUNT_ID')
         AWS_ECR_REPO_NAME = credentials('ECR_REPO1')
-        AWS_DEFAULT_REGION = 'us-east-1'
+        AWS_DEFAULT_REGION = 'ap-south-1'
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/"
     }
     stages {
@@ -87,14 +87,14 @@ pipeline {
         stage('Update Deployment file') {
             environment {
                 GIT_REPO_NAME = 'E2E-EKS-Three-Tier-DevSecOps-Project'
-                GIT_USER_NAME = 'Uj5Ghare'
+                GIT_USER_NAME = 'manjunathashastri'
             }
             steps {
                 dir('k8s/eks/frontend') {
                     withCredentials([string(credentialsId: 'gh-token', variable: 'GH_TOKEN')]) {
                         sh '''
-                            git config user.email "ujwal5ghare@gmail.com"
-                            git config user.name "Uj5Ghare"
+                            git config user.email "manjunathashastri01@gmail.com"
+                            git config user.name "manjunathashastri"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
                             imageTag=$(grep -oP '(?<=frontend:)[^ ]+' deployment.yaml)
