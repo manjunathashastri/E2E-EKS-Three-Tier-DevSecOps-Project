@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git credentialsId: 'GitHub', url: 'https://github.com/Uj5Ghare/E2E-EKS-Three-Tier-DevSecOps-Project.git'
+                git credentialsId: 'GitHub', url: 'https://github.com/manjunathashastri/E2E-EKS-Three-Tier-DevSecOps-Project.git'
             }
         }
         stage('Sonarqube Analysis') {
