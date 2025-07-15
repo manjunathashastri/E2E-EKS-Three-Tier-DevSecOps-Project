@@ -5,6 +5,8 @@ RUN npm install
 
 FROM node:14.0.0-alpine
 WORKDIR /app
+# Copy package.json and package-lock.json for npm start and any dependency info
+COPY --from=frontend /usr/src/app/package*.json ./
 COPY --from=frontend /usr/src/app/node_modules ./node_modules
 COPY --from=frontend /usr/src/app/public .
 COPY --from=frontend /usr/src/app/src .
