@@ -9,4 +9,9 @@ COPY --from=frontend /usr/src/app/package*.json ./
 COPY --from=frontend /usr/src/app/node_modules ./node_modules
 COPY --from=frontend /usr/src/app/public ./public
 COPY --from=frontend /usr/src/app/src ./src
+
+# Debugging line: list files to verify they exist in final image
+RUN ls -l /app/public
+RUN ls -l /app/src
+
 CMD ["npm", "start"]
