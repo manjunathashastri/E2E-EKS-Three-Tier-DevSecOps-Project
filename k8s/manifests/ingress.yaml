@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: k8s-threetie-mainlb-b5b9250791-772470673.ap-south-1.elb.amazonaws.com
+    - host: k8s-threetie-mainlb-b5b9250791-290595176.ap-south-1.elb.amazonaws.com
       http:
         paths:
           - path: /api
