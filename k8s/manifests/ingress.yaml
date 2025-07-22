@@ -11,8 +11,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: k8s-threetie-mainlb-b5b9250791-772470673.ap-south-1.elb.amazonaws.com
-      http:
+    - http:
         paths:
           - path: /api
             pathType: Prefix
@@ -22,21 +21,21 @@ spec:
                 port:
                   number: 3500
           - path: /healthz
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: api
                 port:
                   number: 3500
           - path: /ready
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: api
                 port:
                   number: 3500
           - path: /started
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: api
